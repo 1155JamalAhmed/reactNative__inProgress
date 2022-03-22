@@ -19,7 +19,9 @@ const TakeImage = () => {
   const [image, setImage] = useState();
 
   const takePermissionForCamera = async () => {
+    //this line when executed on web browser crashes the app with errors
     const { status } = await Camera.requestCameraPermissionsAsync();
+    
     if (status === "granted") {
       return true;
     }
